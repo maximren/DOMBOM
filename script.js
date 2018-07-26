@@ -10,13 +10,14 @@ function validate_form(age, username, date) {
 }
 
 function validate_age(age) {
+    if (age.value.indexOf(" ") !== -1) {
+        return false;
+    }
     const characters = age.value.split('');
     let temporary = true;
     for (let i = 0; i <= characters.length - 1; i++) {
         if (characters[i] >= 0) {
             temporary = temporary && true;
-        } else if (age.value.indexOf(' ')) {
-            return true;
         } else {
             temporary = false;
         }
